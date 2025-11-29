@@ -10,10 +10,11 @@ const authToken = (req, res, next) =>{
     try {
         const decode = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decode;
+        // console.log("DECODE USER", decode)
         next();
     } catch (error) {
         return res.status(500).json({message: "Internal server error"});
     }
 }
 
-export default authToken;
+export {authToken};
