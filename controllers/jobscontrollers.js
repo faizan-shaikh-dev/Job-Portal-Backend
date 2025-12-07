@@ -55,8 +55,11 @@ const newJobs = async (req, res) => {
 
     const job = await Job.create(payload);
     return res.status(201).json(job, { message: "Job Created" });
+    console.log(job);
+    
+    
   } catch (error) {
-    console.error("newJobs", error);
+    console.error("newJobs", newJobs);
     res.status(500).json({ message: "internal server error" });
   }
 };

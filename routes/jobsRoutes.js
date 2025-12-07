@@ -6,7 +6,7 @@ import {authToken} from '../middleware/auth.js';
 const router = express.Router();
 
 //Get All Jobs Route
-router.get('/all',authToken, adminToken, getAllJobs);
+router.get('/all',getAllJobs);
 
 //Get Single Jobs by Id
 router.get('/:id',authToken, adminToken, getJobById);
