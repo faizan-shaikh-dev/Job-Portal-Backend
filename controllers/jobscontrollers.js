@@ -59,7 +59,7 @@ const newJobs = async (req, res) => {
     
     
   } catch (error) {
-    console.error("newJobs", newJobs);
+    console.error("newJobs",error);
     res.status(500).json({ message: "internal server error" });
   }
 };
