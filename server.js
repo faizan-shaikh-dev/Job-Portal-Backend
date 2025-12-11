@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import jobsRoutes from './routes/jobsRoutes.js';
 import feedRoutes from "./routes/feedRoutes.js"
+import { authToken } from './middleware/auth.js';
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.get('/', (req, res)=>{
 
 app.use('/api/users', authRoutes);
 app.use('/api/jobs', jobsRoutes);
-app.use('/api/feedback', feedRoutes);
+app.use('/api/feedback',authToken, feedRoutes);
 
 const PORT = process.env.PORT || 5000;
 
